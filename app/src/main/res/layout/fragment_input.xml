@@ -1,0 +1,122 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+
+    tools:context="uvic.csc.chenyil.consumptiontracker.input$PlaceholderFragment">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:showDividers="beginning|middle|end"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:stretchColumns="1"
+            >
+            <TableRow
+
+                android:gravity="center_vertical"
+                >
+                <TextView
+                    android:text="Product:"/>
+                <TextView />
+            </TableRow>
+            <TableRow
+                android:gravity="center_vertical">
+                <TextView
+                    android:text="Size: "
+                    android:textAlignment="center"
+                     />
+
+                <SeekBar
+                    android:layout_column="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/seekBar"
+                     />
+
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:showDividers="beginning|middle|end"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:stretchColumns="1"
+            >
+            <TableRow
+                android:gravity="center">
+                <TextView
+                    android:text="Finish in:" />
+
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberSigned"
+                    android:ems="10"
+                    android:id="@+id/editText"
+                    android:layout_column="1" />
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner2"
+                    android:spinnerMode="dropdown"
+                    android:entries="@array/time_unit"
+                    android:layout_column="2" />
+
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="For :"/>
+
+            </TableRow>
+
+            <TableRow>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageView"
+                    android:src="@drawable/ic_launcher" />
+            </TableRow>
+
+            <!--<TableRow-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="fill_parent">-->
+
+            <!--<Button-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="New Button"-->
+                    <!--android:id="@+id/button"-->
+                    <!--android:layout_column="0" />-->
+            <!--</TableRow>-->
+
+            <!--<TableRow-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="fill_parent">-->
+
+                <!--<Button-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="New Button"-->
+                    <!--android:id="@+id/button2"-->
+                    <!--android:layout_column="0" />-->
+            <!--</TableRow>-->
+        </TableLayout>
+    </LinearLayout>
+</RelativeLayout>
