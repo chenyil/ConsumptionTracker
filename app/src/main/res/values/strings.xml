@@ -6,8 +6,13 @@
     <string name="action_settings">Settings</string>
     <string name="action_groups">Groups</string>
     <string name="action_profile">Profile</string>
+    <string name="action_new">New</string>
     <string name="title_activity_whatif">scan product</string>
     <string name="title_activity_input">input</string>
+    <string name="no_profiles">Currently, there are no profiles</string>
+
+
+    <string name="finish_editing">Done</string>
 
     <string-array name="time_unit">
         <item>Day</item>
@@ -15,5 +20,22 @@
         <item>Month</item>
         <item>Year</item>
     </string-array>
+
+    <string name="title_activity_gourps">Gourps</string>
+
+    <string-array name="groups_name">
+        <item>Family</item>
+        <item>Children</item>
+    </string-array>
+    <string-array name="profiles_name">
+        <item>Dad</item>
+        <item>Wife</item>
+        <item>Husband</item>
+        <item>Child 1</item>
+        <item>Child 2</item>
+    </string-array>
+
+    <string name="title_activity_profiles">Profiles</string>
+    <string name="title_activity_profilesactivity">profilesactivity</string>
 
 </resources>

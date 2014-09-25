@@ -33,6 +33,14 @@ public class MainActivity extends Activity {
         if (id == R.id.action_settings) {
             return true;
         }
+        if (id == R.id.action_groups) {
+            startGroups();
+            return true;
+        }
+        if (id== R.id.action_profile){
+            startProfiles();
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -42,4 +50,15 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 
+    public void startGroups()
+    {
+        Intent intent = new Intent(this, gourps.class);
+        startActivity(intent);
+    }
+
+    public void startProfiles()
+    {
+        Intent intent = new Intent(this, profiles.class);
+        startActivity(intent);
+    }
 }

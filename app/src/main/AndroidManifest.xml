@@ -32,6 +32,25 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="uvic.csc.chenyil.consumptiontracker.whatif" />
         </activity>
+        <activity
+            android:name=".gourps"
+            android:label="@string/title_activity_gourps"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="uvic.csc.chenyil.consumptiontracker.MainActivity" />
+        </activity>
+        <activity
+            android:name=".profiles"
+            android:label="@string/title_activity_profiles"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="uvic.csc.chenyil.consumptiontracker.MainActivity" />
+        </activity>
+
+
     </application>
 
 </manifest>
+
