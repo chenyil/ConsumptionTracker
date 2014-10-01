@@ -10,8 +10,7 @@
     <string name="title_activity_whatif">scan product</string>
     <string name="title_activity_input">input</string>
     <string name="no_profiles">Currently, there are no profiles</string>
-
-
+    <string name="menu_delete">Delete</string>
     <string name="finish_editing">Done</string>
 
     <string-array name="time_unit">
@@ -35,7 +34,13 @@
         <item>Child 2</item>
     </string-array>
 
+    <string-array name="gender_name">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
     <string name="title_activity_profiles">Profiles</string>
     <string name="title_activity_profilesactivity">profilesactivity</string>
+    <string name="title_activity_profiledetails">profiledetails</string>
 
 </resources>

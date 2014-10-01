@@ -1,19 +1,25 @@
 package uvic.csc.chenyil.consumptiontracker;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-
-
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
+import android.widget.AdapterView.AdapterContextMenuInfo;
 import java.util.List;
-import java.util.Random;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 
 import android.app.ListActivity;
 
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import uvic.csc.chenyil.consumptiontracker.database.Profile;
 import uvic.csc.chenyil.consumptiontracker.database.ProfileDataSource;
@@ -21,6 +27,7 @@ import uvic.csc.chenyil.consumptiontracker.database.ProfileDataSource;
 
 public class profiles extends ListActivity {
     private ProfileDataSource datasource;
+    private static final int DELETE_ID = Menu.FIRST + 1;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,33 +46,37 @@ public class profiles extends ListActivity {
         setListAdapter(adapter);
     }
 
-    // Will be called via the onClick attribute
-    // of the buttons in main.xml
-    public void onClick(View view) {
-        @SuppressWarnings("unchecked")
-        ArrayAdapter<Profile> adapter = (ArrayAdapter<Profile>) getListAdapter();
-        Profile profile = null;
-        switch (view.getId()) {
-            case R.id.add:
-                String[] profiles = new String[] { "Dad", "Mom", "Me" };
-                int nextInt = new Random().nextInt(3);
-                // save the new profile to the database
-                profile = datasource.createProfile(profiles[nextInt],"Male",180,150);
-                adapter.add(profile);
-                break;
-            case R.id.delete:
-                if (getListAdapter().getCount() > 0) {
-                    profile = (Profile) getListAdapter().getItem(0);
-                    datasource.deleteProfile(profile);
-                    adapter.remove(profile);
-                }
-                break;
-        }
-        adapter.notifyDataSetChanged();
+    // Opens the second activity if an entry is clicked
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+        Intent i = new Intent(this, profiledetails.class);
+
+        //i.putExtra("Name",datasource.)
+
+        startActivity(i);
     }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        menu.add(0, DELETE_ID, 0, R.string.menu_delete);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case DELETE_ID:
+                datasource.deleteProfile((Profile) item);
+                return true;
+        }
+        return super.onContextItemSelected(item);
+    }
+
     private void newProfile()
     {
-
+        Intent i = new Intent(this,profiledetails.class);
+        startActivity(i);
     }
 
     @Override

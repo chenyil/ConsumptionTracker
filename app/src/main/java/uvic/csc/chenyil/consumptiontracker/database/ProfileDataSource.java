@@ -63,8 +63,8 @@ public class ProfileDataSource {
 
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
-            Profile  comment = cursorToProfile(cursor);
-            profiles.add(comment);
+            Profile  profile = cursorToProfile(cursor);
+            profiles.add(profile);
             cursor.moveToNext();
         }
         // make sure to close the cursor
@@ -80,6 +80,12 @@ public class ProfileDataSource {
         profile.setHeight(cursor.getInt(3));
         profile.setWeight(cursor.getInt(4));
         return profile;
+    }
+
+    public String getName(long id){
+        Cursor cursor = database.query(MySQLiteHelper.TABLE_PROFILES,allColumns,MySQLiteHelper.COLUMN_ID + " = " + id,null,null,null,null);
+        Profile profile = cursorToProfile(cursor);
+        return  profile.getName();
     }
 
 }
