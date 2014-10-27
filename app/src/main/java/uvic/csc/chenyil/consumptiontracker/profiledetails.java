@@ -19,6 +19,9 @@ public class profiledetails extends Activity {
     private Spinner mGender;
     private EditText mHeight;
     private EditText mWeight;
+
+    boolean isNew=true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +35,7 @@ public class profiledetails extends Activity {
         mWeight = (EditText)findViewById(R.id.profile_weight);
         mGender = (Spinner)findViewById(R.id.gender_spinner);
 
+        fillData();
     }
 
 
@@ -54,12 +58,43 @@ public class profiledetails extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void createProfileByInput() {
+    public void createProfileByInput(View view){
 
-        Profile profile = null;
-        profile = datasource.createProfile("Name","Male",180,150);
+        String name = mName.getText().toString();
+        String gender = mGender.getSelectedItem().toString();
+        int height = Integer.parseInt(mHeight.getText().toString());
+        int weight = Integer.parseInt(mWeight.getText().toString());
 
+        if (!isNew) {
+            Bundle extras = getIntent().getExtras();
+            long id = extras.getLong("ID");
+            datasource.updateRow(id, name, gender, height, weight);
+        }
+        else{
+            Profile profile = null;
+            profile = datasource.createProfile(name,gender,height,weight);
+        }
 
+        finish();
+    }
+
+    private void fillData()
+    {
+        Bundle extras = getIntent().getExtras();
+        if (extras==null)
+        {
+            return;
+        }
+        isNew=false;
+        mName.setText(extras.getString("Name"));
+        mHeight.setText(Integer.toString(extras.getInt("Height")));
+        mWeight.setText(Integer.toString(extras.getInt("Weight")));
+        for (int i = 0; i < mGender.getCount(); i++) {
+            String s = (String) mGender.getItemAtPosition(i);
+            if (s.equalsIgnoreCase(extras.getString("Gender"))){
+                mGender.setSelection(i);
+            }
+        }
     }
 
     @Override

@@ -61,4 +61,9 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(this, profiles.class);
         startActivity(intent);
     }
+    public void startReport(View view)
+    {
+        Intent intent = new Intent(this, ReportActivity.class);
+        startActivity(intent);
+    }
 }

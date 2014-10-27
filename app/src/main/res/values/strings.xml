@@ -33,7 +33,6 @@
         <item>Child 1</item>
         <item>Child 2</item>
     </string-array>
-
     <string-array name="gender_name">
         <item>Male</item>
         <item>Female</item>
@@ -42,5 +41,6 @@
     <string name="title_activity_profiles">Profiles</string>
     <string name="title_activity_profilesactivity">profilesactivity</string>
     <string name="title_activity_profiledetails">profiledetails</string>
+    <string name="title_activity_report">ReportActivity</string>
 
 </resources>

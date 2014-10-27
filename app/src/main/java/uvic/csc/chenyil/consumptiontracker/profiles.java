@@ -37,23 +37,21 @@ public class profiles extends ListActivity {
         datasource = new ProfileDataSource(this);
         datasource.open();
 
-        List<Profile> values = datasource.getAllProfiles();
-
-        // use the SimpleCursorAdapter to show the
-        // elements in a ListView
-        ArrayAdapter<Profile> adapter = new ArrayAdapter<Profile>(this,
-                android.R.layout.simple_list_item_1, values);
-        setListAdapter(adapter);
+        updateAdapter();
     }
 
     // Opens the second activity if an entry is clicked
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
+
         Intent i = new Intent(this, profiledetails.class);
-
-        //i.putExtra("Name",datasource.)
-
+        Profile profile = (Profile) l.getAdapter().getItem((int)id);
+        i.putExtra("Name",profile.getName());
+        i.putExtra("Gender",profile.getGender());
+        i.putExtra("Height", profile.getHeight());
+        i.putExtra("Weight", profile.getWeight());
+        i.putExtra("ID",profile.getId());
         startActivity(i);
     }
 
@@ -67,10 +65,20 @@ public class profiles extends ListActivity {
     public boolean onContextItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case DELETE_ID:
-                datasource.deleteProfile((Profile) item);
+                datasource.deleteProfile((Profile) getListView().getSelectedItem());
                 return true;
         }
         return super.onContextItemSelected(item);
+    }
+
+    private void updateAdapter()
+    {
+        // use the SimpleCursorAdapter to show the
+        // elements in a ListView
+        List<Profile> values = datasource.getAllProfiles();
+        ArrayAdapter<Profile> adapter = new ArrayAdapter<Profile>(this,
+                android.R.layout.simple_list_item_1, values);
+        setListAdapter(adapter);
     }
 
     private void newProfile()
@@ -101,6 +109,7 @@ public class profiles extends ListActivity {
     @Override
     protected void onResume() {
         datasource.open();
+        updateAdapter();
         super.onResume();
     }
 

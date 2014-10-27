@@ -38,7 +38,8 @@
                 android:layout_gravity="center_vertical"
                 android:text="Report"
                 android:drawableTop="@drawable/ic_action_data_usage"
-                android:src="@drawable/ic_action_data_usage" />
+                android:src="@drawable/ic_action_data_usage"
+                android:onClick="startReport"/>
 
             <Button
                 android:layout_width="wrap_content"

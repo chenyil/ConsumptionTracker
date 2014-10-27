@@ -56,6 +56,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="uvic.csc.chenyil.consumptiontracker.profiles" />
         </activity>
+        <activity
+            android:name=".ReportActivity"
+            android:label="@string/title_activity_report"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="uvic.csc.chenyil.consumptiontracker.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

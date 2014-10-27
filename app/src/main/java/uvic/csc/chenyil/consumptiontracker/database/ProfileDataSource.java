@@ -88,4 +88,31 @@ public class ProfileDataSource {
         return  profile.getName();
     }
 
+    public boolean profileExist(long id){
+        Cursor cursor = database.query(MySQLiteHelper.TABLE_PROFILES,allColumns,MySQLiteHelper.COLUMN_ID + " = " + id,null,null,null,null);
+        if (cursor.getCount()>0)
+            return true;
+        else
+            return false;
+
+    }
+    public void updateRow(long id,String name,String gender,int height,int weight)
+    {
+//        String update = "UPDATE "   + MySQLiteHelper.TABLE_PROFILES+"\n"
+//                        +"SET "     + MySQLiteHelper.COLUMN_NAME + " = " + name + ", "
+//                                    + MySQLiteHelper.COLUMN_GENDER + " = " + gender + ", "
+//                                    + MySQLiteHelper.COLUMN_WEIGHT + " = " + weight +", "
+//                                    + MySQLiteHelper.COLUMN_HEIGHT + " = " + height +"\n"
+//                        +"WHERE "   + MySQLiteHelper.COLUMN_ID + " = " + id +";";
+//        database.execSQL(update);
+
+        ContentValues values = new ContentValues();
+        values.put(MySQLiteHelper.COLUMN_NAME, name);
+        values.put(MySQLiteHelper.COLUMN_GENDER, gender);
+        values.put(MySQLiteHelper.COLUMN_HEIGHT, height);
+        values.put(MySQLiteHelper.COLUMN_WEIGHT, weight);
+
+        database.update(MySQLiteHelper.TABLE_PROFILES, values, "_id "+"="+id, null);
+    }
+
 }

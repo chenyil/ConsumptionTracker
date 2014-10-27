@@ -7,8 +7,8 @@ public class Profile {
     private long id;
     private String name;
     private String gender;
-    private float height;
-    private float weight;
+    private int height;
+    private int weight;
     private String photo;
 
 
@@ -24,6 +24,12 @@ public class Profile {
         return name;
     }
 
+    public String getGender(){return gender;}
+
+    public int getHeight() {return height;}
+
+    public int getWeight() {return weight;}
+
     public void setName(String name) {
         this.name = name;
     }
@@ -37,6 +43,6 @@ public class Profile {
     // Will be used by the ArrayAdapter in the ListView
     @Override
     public String toString() {
-        return (name+gender+weight);
+        return (name);
     }
 }
