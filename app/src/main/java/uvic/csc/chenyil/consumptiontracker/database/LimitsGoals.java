@@ -10,6 +10,14 @@ public class LimitsGoals {
     private float amount;
     private String type;
 
+    LimitsGoals(long id,long pid, long nid, float amount, String type){
+        setId(id);
+        setPId(pid);
+        setNId(nid);
+        setAmount(amount);
+        setType(type);
+    }
+
     public long getId() {
         return id;
     }

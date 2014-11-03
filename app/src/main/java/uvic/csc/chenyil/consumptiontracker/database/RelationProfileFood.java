@@ -12,6 +12,15 @@ public class RelationProfileFood {
     private Date purchaseTime;
     private Date finishTime;
 
+    public RelationProfileFood(long id,long pid,long fid,float amount,Date purchaseTime,Date finishTime){
+        setId(id);
+        setPId(pid);
+        setFId(fid);
+        setAmount(amount);
+        setFinishTime(purchaseTime);
+        setFinishTime(finishTime);
+    }
+
     public long getId() {
         return id;
     }

@@ -20,12 +20,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 
-import uvic.csc.chenyil.consumptiontracker.database.Food;
-import uvic.csc.chenyil.consumptiontracker.database.LimitsGoals;
-import uvic.csc.chenyil.consumptiontracker.database.Nutrient;
-import uvic.csc.chenyil.consumptiontracker.database.Profile;
-import uvic.csc.chenyil.consumptiontracker.database.RelationFoodNutrients;
-import uvic.csc.chenyil.consumptiontracker.database.RelationProfileFood;
+import uvic.csc.chenyil.consumptiontracker.database.*;
 
 public class ReportActivity extends Activity {
     private XYPlot plot;
@@ -37,6 +32,8 @@ public class ReportActivity extends Activity {
     private ArrayList<Food> foods;
     private ArrayList<RelationProfileFood> rpfs;
     private ArrayList<RelationFoodNutrients> rfns;
+
+    private AppData testData = new AppData();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +47,10 @@ public class ReportActivity extends Activity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
                 WindowManager.LayoutParams.FLAG_SECURE);
 
+        testData.initialize();
+
         createLineChart();
-        createPirchart();
+        createPiechart();
 
     }
 
@@ -86,7 +85,7 @@ public class ReportActivity extends Activity {
         // Create a couple arrays of y-values to plot:
         Number[] series1Numbers = {1000, 1200, 2800, 1400, 1400, 2000};
         //Number[] series2Numbers = {4, 6, 3, 8, 2, 10};
-        Number[] limitNumbers = {1500,1500,1500,1500,1500,1500};
+        Number[] limitNumbers = {1500,1500,1500,1500,1500,1600};
 
         Number[] days = {1,2,3,4,5,6};
 
@@ -122,7 +121,7 @@ public class ReportActivity extends Activity {
         plot.getGraphWidget().setDomainLabelOrientation(-45);
     }
 
-    private void createPirchart()
+    private void createPiechart()
     {
         // initialize our XYPlot reference:
         pieChart = (PieChart) findViewById(R.id.myPiePlot);

@@ -9,6 +9,13 @@ public class RelationFoodNutrients {
     private long fid;
     private float amount;
 
+    public RelationFoodNutrients(long id,long nid,long fid,float amount){
+        setId(id);
+        setNId(nid);
+        setFId(fid);
+        setAmount(amount);
+    }
+
     public long getId() {
         return id;
     }
@@ -17,9 +24,9 @@ public class RelationFoodNutrients {
         this.id = id;
     }
 
-    public long getPId() {  return nid; }
+    public long getNId() {  return nid; }
 
-    public void setPId(long id) {
+    public void setNId(long id) {
         this.nid = id;
     }
 

@@ -9,6 +9,16 @@ public class Food {
     private String unit;
     private int servingSize;
     private int packageSize;
+    private String category;
+
+    public Food(long id, String name, String unit, int servingSize, int packageSize,String category){
+        setId(id);
+        setUnit(unit);
+        setName(name);
+        setServingSize(servingSize);
+        setPackageSize(packageSize);
+        setCategory(category);
+    }
 
     public long getId() {
         return id;
@@ -37,5 +47,9 @@ public class Food {
     public int getPackageSize() {return packageSize;}
 
     public void setPackageSize(int size){this.packageSize=size;}
+
+    public String getCategory(){ return category;}
+
+    public void setCategory(String category){this.category=category;}
 
 }

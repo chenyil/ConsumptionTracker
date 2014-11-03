@@ -11,7 +11,6 @@ public class Profile {
     private int weight;
     private String photo;
 
-
     public long getId() {
         return id;
     }
