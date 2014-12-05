@@ -13,23 +13,34 @@ import java.util.List;
 public class AppData {
 
     ArrayList<Profile> profiles = new ArrayList<Profile>();
-    ArrayList<Food> foods;
+    ArrayList<Food> foods = new ArrayList<Food>();
     ArrayList<Nutrient> nutrients = new ArrayList<Nutrient>();
 
-    ArrayList<LimitsGoals> limitsGoals;
-    ArrayList<RelationFoodNutrients> relationFoodNutrientses;
-    ArrayList<RelationProfileFood> relationProfileFoods;
+    ArrayList<LimitsGoals> limitsGoals = new ArrayList<LimitsGoals>();
+    ArrayList<RelationFoodNutrients> relationFoodNutrientses = new ArrayList<RelationFoodNutrients>();
+    ArrayList<RelationProfileFood> relationProfileFoods = new ArrayList<RelationProfileFood>();
 
     public void initialize(){
         addProfile();
         addNutrients();
-
         //add food
         int fid=addFood("Pepsi","ml",355,710,"Drink");
         addRelationFN(0,fid,150);
         addRelationFN(5,fid,15);
         addRelationFN(6,fid,42);
         addRelationFN(8,fid,41);
+
+        fid = addFood("Dempster's Whole wheat bread","grams",71,710,"Grains");
+        addRelationFN(0,fid,170);
+        addRelationFN(1,fid,2);
+        addRelationFN(2,fid,Float.parseFloat("0.4"));
+        addRelationFN(5,fid,350);
+        addRelationFN(6,fid,32);
+        addRelationFN(7,fid,4);
+        addRelationFN(8,fid,2);
+        addRelationFN(9,fid,7);
+        addRelationFN(12,fid,Float.parseFloat("0.04"));
+        addRelationFN(13,fid,Float.parseFloat("0.1"));
         
     }
     public void addProfile(){

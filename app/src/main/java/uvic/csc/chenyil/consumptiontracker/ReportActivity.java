@@ -54,7 +54,6 @@ public class ReportActivity extends Activity {
 
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -74,9 +73,6 @@ public class ReportActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void createSampleData(){
-
-    }
     //create a line chart
     private void createLineChart(){
         // initialize our XYPlot reference:
@@ -85,7 +81,7 @@ public class ReportActivity extends Activity {
         // Create a couple arrays of y-values to plot:
         Number[] series1Numbers = {1000, 1200, 2800, 1400, 1400, 2000};
         //Number[] series2Numbers = {4, 6, 3, 8, 2, 10};
-        Number[] limitNumbers = {1500,1500,1500,1500,1500,1600};
+        Number[] limitNumbers = {1500};
 
         Number[] days = {1,2,3,4,5,6};
 
